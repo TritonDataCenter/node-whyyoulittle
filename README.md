@@ -13,22 +13,39 @@ from [MANTA-3284](https://smartos.org/bugview/MANTA-3284) work for
 [muskie](https://github.com/joyent/manta-muskie/) (Joyent Manta's webapi).
 
 
-## Testing
+## Overview
 
-TODO
+The throttling support provides a configurable queue for incoming requests that
+will:
+
+- limit the number of concurrent requests being handled (`concurrency`)
+- have a number of requests beyond that that it will queue (`queueTolerance`)
+- respond with HTTP 503s for requests beyond that
+
 
 
 ## Development
 
-Before commit, ensure that the following checks are clean:
+### Testing
+
+TODO
+
+
+### Commiting
+
+Before commit, ensure that the following passes:
 
     make prepush
+
+You can setup a local git pre-commit hook that'll do that by running
+
+    make git-hooks
 
 Also see the note at the top that https://cr.joyent.us is used for code review
 for this repo.
 
 
-## Releases
+### Releasing
 
 Changes with possible user impact should:
 
