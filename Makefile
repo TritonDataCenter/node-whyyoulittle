@@ -13,7 +13,7 @@ include ./tools/mk/Makefile.defs
 #
 .PHONY: all
 all:
-	npm install --production
+	npm install
 
 check:: check-version
 
