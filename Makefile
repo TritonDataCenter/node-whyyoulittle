@@ -23,6 +23,10 @@ check-version:
 	@echo version is: $(shell cat package.json | json version)
 	[[ `cat package.json | json version` == `grep '^## ' CHANGES.md | head -2 | tail -1 | awk '{print $$2}'` ]]
 
+.PHONY: fmt
+fmt:: | $(ESLINT)
+	$(ESLINT) --fix $(ESLINT_FILES)
+
 .PHONY: cutarelease
 cutarelease: check
 	[[ -z `git status --short` ]]  # If this fails, the working dir is dirty.

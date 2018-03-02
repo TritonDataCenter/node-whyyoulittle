@@ -1,9 +1,13 @@
 {
-    "plugins": [ "joyent" ],
+    "plugins": [
+        "joyent",
+        "prettier"
+    ],
     "extends": [
         "eslint:recommended",
         "plugin:joyent/style",
-        "plugin:joyent/lint"
+        "plugin:joyent/lint",
+        "plugin:prettier/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 6,
@@ -16,8 +20,6 @@
     },
     "rules": {
         "curly": ["error", "all"],
-        "max-len": ["error", {
-            "ignoreUrls": true //Not sure if this should be ignoreComments or ignoreUrls
-        }]
+        "max-len": "off"  // use 80 column support from prettier  //XXX needed?
     }
 }
