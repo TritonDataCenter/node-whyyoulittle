@@ -19,7 +19,6 @@
         "node": true
     },
     "rules": {
-        "curly": ["error", "all"],
-        "max-len": "off"  // use 80 column support from prettier  //XXX needed?
+        "curly": ["error", "all"]
     }
 }
