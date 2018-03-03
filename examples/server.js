@@ -64,6 +64,9 @@ server.get('/status', function getStatus(req, res, next) {
 assert.equal(server.handleUncaughtExceptions, false,
     'whyyoulittle.Throttle breaks if using restify handleUncaughtExceptions');
 server.use(whyyoulittle.throttleHandler(throttle));
+// Or can use `server.pre` to do throttling *before* request routing is done.
+// Note that this means throttling will be on all requests:
+//      server.pre(whyyoulittle.throttleHandler(throttle));
 
 server.get('/boom', function getBoom(req, res, next) {
     throw new Error('boom');
